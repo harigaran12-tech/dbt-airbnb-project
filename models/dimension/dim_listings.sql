@@ -1,0 +1,11 @@
+SELECT 
+      LISTING_ID
+    , LISTING_URL
+    , INITCAP(NAME) AS NAME
+    , UPPER(ROOM_TYPE) AS ROOM_TYPE
+    , MINIMUM_NIGHTS
+    , HOST_ID
+    , REPLACE(PRICE,'$')::INT AS PRICE
+    , CREATED_AT
+    , UPDATED_AT
+FROM {{ ref('stg_listings') }}
